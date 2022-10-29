@@ -7,8 +7,7 @@ $ minikube start \
  --kubernetes-version 1.24.7 \
  --container-runtime=containerd \
  --nodes 3 \
- --cni calico \
- -p multinode-demo
+ --cni calico
 ```
 [Using Multi-Node Clusters](https://minikube.sigs.k8s.io/docs/tutorials/multi_node/)
 
