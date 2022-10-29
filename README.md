@@ -3,7 +3,12 @@
 
 ### Using Multi-Node Clusters
 ```
-$ minikube start --kubernetes-version 1.24.7 --container-runtime=containerd --nodes 3 --cni calico -p multinode-demo
+$ minikube start \
+ --kubernetes-version 1.24.7 \
+ --container-runtime=containerd \
+ --nodes 3 \
+ --cni calico \
+ -p multinode-demo
 ```
 [Using Multi-Node Clusters](https://minikube.sigs.k8s.io/docs/tutorials/multi_node/)
 
