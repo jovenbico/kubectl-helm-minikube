@@ -1,0 +1,28 @@
+# kubectl apply -f redis-pod.yaml
+# kubectl exec -it redispod redis-cli
+## SET server:name "redis server"
+## GET server:name
+## QUIT
+# kubectl delete pod redispod
+## (update name) name: redispod2
+# kubectl exec -it redispod2 redis-cli
+## GET server:name
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redispod2
+spec:
+  containers:
+  - image: redis
+    name: redisdb
+    volumeMounts:
+    - name: redis-data
+      mountPath: /data
+    ports:
+    - containerPort: 6379
+      protocol: TCP
+  volumes:
+  - name: redis-data
+    persistentVolumeClaim:
+      claimName: redisdb-pvc
