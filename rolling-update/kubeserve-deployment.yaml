@@ -1,0 +1,28 @@
+# kubectl apply -f kubeserve-deployment.yaml --record
+# kubectl rollout status deployments kubeserve
+# kubectl describe deployment kubeserve
+# kubectl scale deployment kubeserve --replicas=5
+# kubectl get pods
+# while true; do curl http://<ip-address-of-the-service>; done
+# kubectl set image deployments/kubeserve app=linuxacademycontent/kubeserve:v2 --v 6
+# kubectl get replicasets
+# kubectl get pods
+# kubectl rollout history deployment kubeserve
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeserve
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubeserve
+  template:
+    metadata:
+      name: kubeserve
+      labels:
+        app: kubeserve
+    spec:
+      containers:
+      - image: linuxacademycontent/kubeserve:v1
+        name: app
