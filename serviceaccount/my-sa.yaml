@@ -1,0 +1,6 @@
+# kubectl apply -f my-sa.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: my-sa
+automountServiceAccountToken: true
