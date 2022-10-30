@@ -1,4 +1,4 @@
-# kubectl apply -f kubeserve-deployment.yaml
+# kubectl apply -f kubeserve-deployment.yaml --record=true
 # kubectl rollout history deployment.apps/kubeserve
 # kubectl rollout status -w deployment.apps/kubeserve
 # kubectl describe deployment.apps/kubeserve
