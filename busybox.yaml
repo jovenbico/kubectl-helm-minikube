@@ -1,3 +1,6 @@
+# kubectl apply -f busybox.yaml
+# kubectl get po
+# kubectl exec -it busybox -- /bin/sh
 apiVersion: v1
 kind: Pod
 metadata:
