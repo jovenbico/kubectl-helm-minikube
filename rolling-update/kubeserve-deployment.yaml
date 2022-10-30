@@ -1,13 +1,16 @@
-# kubectl apply -f kubeserve-deployment.yaml --record
-# kubectl rollout status deployments kubeserve
-# kubectl describe deployment kubeserve
-# kubectl scale deployment kubeserve --replicas=5
-# kubectl get pods
+# kubectl apply -f kubeserve-deployment.yaml
+# kubectl rollout history deployment.apps/kubeserve
+# kubectl rollout status -w deployment.apps/kubeserve
+# kubectl describe deployment.apps/kubeserve
+# kubectl expose deployment.apps/kubeserve --port 80 --target-port 80 --type NodePort
+# kubectl get pods -o wide
+# kubectl scale deployment.apps/kubeserve --replicas=5
 # while true; do curl http://<ip-address-of-the-service>; done
 # kubectl set image deployments/kubeserve app=linuxacademycontent/kubeserve:v2 --v 6
 # kubectl get replicasets
 # kubectl get pods
-# kubectl rollout history deployment kubeserve
+# kubectl rollout history deployment.apps/kubeserve
+# kubectl rollout undo deployment.apps/kubeserve
 apiVersion: apps/v1
 kind: Deployment
 metadata:
