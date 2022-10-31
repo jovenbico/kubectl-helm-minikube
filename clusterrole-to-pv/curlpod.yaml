@@ -5,7 +5,11 @@
 # kubectl apply -f curlpod.yaml
 # kubectl exec -it curlpod -n web -- sh
 ## curl localhost:8001/api/v1/persistentvolumes
-
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: web
+---
 apiVersion: v1
 kind: Pod
 metadata:
