@@ -1,0 +1,29 @@
+# kubectl apply -f ingress-test-ingress.yaml
+# kubectl get ingress/ingress-test-ingress
+
+# helm repo add nginx-stable https://helm.nginx.com/stable
+# helm repo update
+# kubectl create namespace nginx-ingress
+# helm install nginx-ingress nginx-stable/nginx-ingress -n nginx-ingress
+# kubectl get service/nginx-ingress-nginx-ingress -n nginx-ingress
+
+# sudo nano /etc/hosts
+# <Nginx ingress controller Service cluster IP> ingresstest.acloud.guru
+# curl ingresstest.acloud.guru
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-test-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: ingresstest.acloud.guru
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ingress-test-service
+            port:
+              number: 80
