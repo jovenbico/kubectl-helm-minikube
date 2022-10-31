@@ -15,5 +15,3 @@ $ minikube start \
 [Enabling Calico on a minikube cluster](https://minikube.sigs.k8s.io/docs/handbook/network_policy/#enabling-calico-on-a-minikube-cluster)
 
 [Runtime Configuration](https://minikube.sigs.k8s.io/docs/handbook/config/#runtime-configuration)
-
-
