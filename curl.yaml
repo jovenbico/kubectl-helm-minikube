@@ -1,0 +1,12 @@
+# kubectl apply -f curl.yaml
+# kubectl exec -it pod/curlpod -- /bin/sh
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curlpod
+spec:
+  containers:
+  - image: curlimages/curl
+    command: ["sleep", "9999999"]
+    name: curlpod
+  restartPolicy: Always
