@@ -1,0 +1,37 @@
+# minikube addons enable ingress
+
+# kubectl apply -f helloapp-ingress.yaml
+
+# kubectl get ingress
+## NOTE: This can take a couple of minutes
+## You should see an IPv4 address in the ADDRESS column
+# sudo nano /etc/hosts
+## <IPv4 ADDRESS> hello-world.info
+
+# curl hello-world.info/
+# curl hello-world.info/v2
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: hello-world.info
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 8080
+          - path: /v2
+            pathType: Prefix
+            backend:
+              service:
+                name: web2
+                port:
+                  number: 8080
