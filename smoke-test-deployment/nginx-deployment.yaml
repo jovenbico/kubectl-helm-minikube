@@ -1,0 +1,38 @@
+# kubectl create secret generic kubernetes-the-hard-way --from-literal="mykey=mydata"
+# kubectl apply -f nginx-deployment.yaml
+# kubectl get po -l app=nginx
+
+# POD_NAME=$(kubectl get po -l app=nginx -o jsonpath="{.items[0].metadata.name}")
+# kubectl port-forward $POD_NAME 8081:80
+# curl --head http://127.0.0.1:8081
+# kubectl logs $POD_NAME
+# kubectl exec -ti $POD_NAME -- nginx -v
+
+# kubectl expose deployment nginx --port 80 --type NodePort
+# NODE_PORT=$(kubectl get svc nginx --output=jsonpath='{range .spec.ports[0]}{.nodePort}')
+# curl -I <node-internal-ip>:$NODE_PORT
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
