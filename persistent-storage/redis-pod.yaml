@@ -1,17 +1,17 @@
 # kubectl apply -f redis-pod.yaml
-# kubectl exec -it redispod redis-cli
+# kubectl exec -it redispod -- redis-cli
 ## SET server:name "redis server"
 ## GET server:name
 ## QUIT
 # kubectl delete pod redispod
 ## (update name) name: redispod2
-# kubectl exec -it redispod2 redis-cli
+# kubectl exec -it redispod2 -- redis-cli
 ## GET server:name
 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: redispod2
+  name: redispod
 spec:
   containers:
   - image: redis
