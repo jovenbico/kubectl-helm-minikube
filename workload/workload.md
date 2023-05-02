@@ -186,7 +186,7 @@ spec:
       name: www
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class" # provide stable storage using PersistentVolumes
+      storageClassName: "" # provide stable storage using PersistentVolumes
       resources:
         requests:
           storage: 1Gi
