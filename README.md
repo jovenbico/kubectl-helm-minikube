@@ -5,7 +5,7 @@ I'm using this setup as my playground
 ### Using Multi-Node Clusters
 ```
 $ minikube start \
- --kubernetes-version 1.24.7 \
+ --kubernetes-version 1.26.4 \
  --container-runtime=containerd \
  --nodes 3 \
  --cni calico
